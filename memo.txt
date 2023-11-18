@@ -1,0 +1,12 @@
+DATA STRUCTURE : 
+
+[{element}, {element}]
+
+{
+    name, 
+    age, 
+    gender, 
+    annual_income, 
+    number_of_children, 
+    married
+}
