@@ -3,7 +3,7 @@ import CreateData.client_class as Client
 # Initializes the list of tuples (surname, gender). Will be reused later in the "create_data()" func. 
 # Returns a list of (name, gender) tuples. 
 
-def data_() :
+def surnames_data() :
 
     variable_list = []
 
@@ -12,6 +12,18 @@ def data_() :
         file_line = line.strip()
         surname, gender = file_line.split(",")
         variable_list.append((surname, gender))
+    open_file.close()
+
+    return variable_list
+
+def emails_data() : 
+
+    variable_list = []
+
+    open_file =  open("CreateData/emails.txt", "r")
+    for line in open_file : 
+        file_line = line.strip()
+        variable_list.append((file_line))
     open_file.close()
 
     return variable_list
@@ -70,6 +82,15 @@ def create_data() :
 
     return data
 
+def create_data2() :
+
+    import random
+    from CreateData.client_class import Client
+    
+    
+
+
+    return None
 
 # Write data on a JSON File. Be sure to specify the path correctly. 
 
