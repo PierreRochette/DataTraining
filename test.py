@@ -21,7 +21,14 @@ while i < len(data) - 1 :
         data[i]["annual_income"]
     )
 
-    
+    tax_data = {
+        "name" : data[i]["name"], 
+        "gender" : data[i]["gender"], 
+        "annual_income" : data[i]["annual_income"], 
+        "income_taxatiion" : income_tax
+    }
+
+    personnal_income_taxation_data.append(tax_data)
 
     i += 1 
 
