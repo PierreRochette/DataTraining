@@ -47,7 +47,7 @@ def create_data() :
     annual_income_tax = {}
     
     i = 0 
-    while i <= 3 : 
+    while i <= 200 : 
         client = cd.surnames_data()[random.randint(0, len(cd.surnames_data()) - 1)]
         new_client = Client(
             client[0], 
