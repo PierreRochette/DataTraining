@@ -1,4 +1,3 @@
-import CreateData.client_class as Client
 
 # Initializes the list of tuples (surname, gender). Will be reused later in the "create_data()" func. 
 # Returns a list of (name, gender) tuples. 
@@ -28,69 +27,61 @@ def emails_data() :
 
     return variable_list
 
-# Create random data. Should be stocket to a variable. 
+# Create random data. Should be stocked into a variable. 
 # Returns JSON formated DATAS. 
 
 def create_data() : 
 
-    import random 
     from CreateData.client_class import Client
-    # Import Client Class
-    import CreateData.createdatafuncs as cd
-    # Can't explain why it's here for now but does not work otherwise 
+    import CreateData.createdatafuncs as cd 
+    import random
+
+    data = {}
+    identifiant = {}
+    name = {}
+    gender = {}
+    age = {}
+    number_of_children = {}
+    is_married = {}
+    annual_income = {}
+    annual_income_tax = {}
     
-
-    data = []
-    # Iniialize empty list data
-
-    clients_list = []
-
-    # Iniialize empty list clients_list
-
-    ### For now the data created will be used in order to train to Data Analysis.
-    ### For the moment, it's more about learning data analytics modules than working with big data, so I begin with ten small. 
-
-    for i in range(10) :
-        client = cd.data_()[random.randint(0, len(cd.data_()) - 1)]
-        # Choose one (surname, gender) pair tuple
+    i = 0 
+    while i <= 3 : 
+        client = cd.surnames_data()[random.randint(0, len(cd.surnames_data()) - 1)]
         new_client = Client(
             client[0], 
-            random.randint(18, 99), 
+            random.randint(18,99),
             client[1], 
-            random.randint(0, 4000000), 
-            random.randint(0, 5), 
+            random.randint(0, 1000000), 
+            random.randint(0, 4), 
             random.choice([True, False])
-            )
-        # Instantiate new Client objet with its parameters (indexes of client tuples)
-        clients_list.append(new_client)
-        # Adding the new Client object to the client list. 
-        ## Doing it ten times
+        )
+        identifiant[str(i)] = i
+        name[str(i)] = new_client.name
+        gender[str(i)] = new_client.gender
+        age[str(i)] = new_client.age
+        number_of_children[str(i)] = new_client.number_of_children
+        is_married[str(i)] = new_client.is_married
+        annual_income[str(i)] = new_client.annual_income
+        annual_income_tax[str(i)] = new_client.annual_income_taxation
 
+        i += 1
 
-        # Formating client list to json datas
-    for client in clients_list : 
-        client_data = {
-            "name" : client.name, 
-            "age" : client.age,
-            "gender" : client.gender,
-            "annual_income" : client.annual_income, 
-            "number_of_children" : client.number_of_children,
-            "married" : client.married
-        }
-        data.append(client_data)
-
+    data = {
+        'identifiant' : identifiant, 
+        'name' : name, 
+        'gender' : gender, 
+        'age' : age,
+        'number_of_children' : number_of_children,
+        'is_married' : is_married,
+        'annual_income' : annual_income,
+        'annual_income_tax' : annual_income_tax
+        
+    }
 
     return data
 
-def create_data2() :
-
-    import random
-    from CreateData.client_class import Client
-    
-    
-
-
-    return None
 
 # Write data on a JSON File. Be sure to specify the path correctly. 
 

@@ -21,7 +21,11 @@ def total_shares(a, b) :
     
     return a + b
 
-def income_taxation(quotient, income) : 
+def income_taxation(is_married,number_of_children, income) : 
+
+    import Calc_funcs.income_taxation as it
+    quotient = it.total_shares(it.mariage_shares(is_married), 
+                               it.children_shares(number_of_children))
 
     taxable_income = income / quotient
 
