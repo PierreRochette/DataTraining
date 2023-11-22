@@ -48,15 +48,7 @@ def create_data() :
     
     i = 0 
     while i <= 200 : 
-        client = cd.surnames_data()[random.randint(0, len(cd.surnames_data()) - 1)]
-        new_client = Client(
-            client[0], 
-            random.randint(18,99),
-            client[1], 
-            random.randint(0, 1000000), 
-            random.randint(0, 4), 
-            random.choice([True, False])
-        )
+        new_client = Client()
         identifiant[str(i)] = i
         name[str(i)] = new_client.name
         gender[str(i)] = new_client.gender
